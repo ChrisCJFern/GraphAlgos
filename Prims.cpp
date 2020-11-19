@@ -1,4 +1,3 @@
-#pragma once
 #define MAXNUMVERTICES 100
 #include <iostream>
 #include <set>
@@ -6,7 +5,6 @@
 #include <map>
 #include <climits>
 using namespace std;
-
 
 class Graph
 {
@@ -36,6 +34,8 @@ void Graph::primMST()
 {
     set<int> inSpanningTree;
     // find minimum edge
+    int numVertices = vertices.size();
+    //cout << numVertices << endl;
     int minEdge = INT_MAX;
     int minFrom = -1;
     int minTo = -1;
@@ -48,11 +48,34 @@ void Graph::primMST()
             }
         }
     }
+    //cout << minFrom << "|" << minTo << "|" << minEdge << endl;
     vertices.erase(minFrom);
     vertices.erase(minTo);
     inSpanningTree.insert(minFrom);
+    inSpanningTree.insert(minTo);
+    cout << minFrom << " " << minTo << endl;
 
-    cout << minFrom << "|" << minTo << "|" << minEdge << endl;
+    for (int j = 1; j < numVertices - 1; j++) {
+
+        minEdge = INT_MAX;
+        for (auto from : inSpanningTree) {
+            for (auto to : vertices) {
+                if (theGraph[from][to] != 0 && theGraph[from][to] < minEdge) {
+                    minEdge = theGraph[from][to];
+                    minFrom = from;
+                    minTo = to;
+                }
+            }
+        }
+        vertices.erase(minTo);
+        inSpanningTree.insert(minTo);
+        cout << minFrom << " " << minTo << endl;
+
+    }
+
+
+
+
     //your code here        
 }
 
@@ -70,5 +93,5 @@ int main()
         myGraph->insertVertex(inVert);
         myGraph->insertVertex(outVert);
     }
-    //myGraph->primMST();
+    myGraph->primMST();
 }
