@@ -37,7 +37,7 @@ int Graph::sumOfMST()
     return 0;
 }
 
-int main()
+int mainK()
 {
     Graph* myGraph = new Graph();
     int numEdges, inVert, outVert, wt;
@@ -52,4 +52,5 @@ int main()
         myGraph->insertVertexK(outVert);
     }
     cout << myGraph->sumOfMST();
+    return 0;
 }

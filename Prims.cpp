@@ -50,6 +50,8 @@ void Graph::primMST()
     }
     vertices.erase(minFrom);
     vertices.erase(minTo);
+    inSpanningTree.insert(minFrom);
+
     cout << minFrom << "|" << minTo << "|" << minEdge << endl;
     //your code here        
 }
@@ -68,5 +70,5 @@ int main()
         myGraph->insertVertex(inVert);
         myGraph->insertVertex(outVert);
     }
-    myGraph->primMST();
+    //myGraph->primMST();
 }
