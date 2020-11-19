@@ -18,5 +18,8 @@
     <ClCompile Include="Kruskals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Prims.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
