@@ -16,6 +16,7 @@ public:
     void insertEdge(int from, int to, int weight);
     void insertVertex(int x);
     int sumOfMST();
+
     // Feel free to add more methods to the API
 };
 
@@ -32,7 +33,8 @@ void Graph::insertVertex(int x)
 
 int Graph::sumOfMST()
 {
-    //your code here        
+    //your code here    
+    return 0;
 }
 
 int main()
